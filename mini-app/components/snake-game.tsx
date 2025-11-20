@@ -43,6 +43,37 @@ export function SnakeGame() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
+  // Touch controls for mobile
+  useEffect(() => {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    };
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touch = e.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+      const absDeltaX = Math.abs(deltaX);
+      const absDeltaY = Math.abs(deltaY);
+      const threshold = 30; // minimum swipe distance
+      if (absDeltaX > absDeltaY && absDeltaX > threshold) {
+        if (deltaX > 0) right();
+        else left();
+      } else if (absDeltaY > threshold) {
+        if (deltaY > 0) down();
+        else up();
+      }
+    };
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [up, down, left, right]);
 
   useEffect(() => {
     if (gameOver) return;
