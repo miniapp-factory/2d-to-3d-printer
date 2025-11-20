@@ -1,3 +1,3 @@
-export const title = "2D to 3D Printer";
-export const description = "Create a beautiful, AI-powered mobile application that converts 2D images into realistic, high-fidelity 3D models. The app should combine cutting-edge AI technology with a vibrant, modern, and intuitive user experience. Use AI-based depth estimation and photogrammetry to reconstruct real-world depth, lighting, and texture — delivering models that look lifelike, not artificial or blocky. Users can upload photos, capture them directly via their camera, or optionally use LiDAR-enabled devices for enhanced depth accuracy. Needs to be Android and ISO compatible.";
+export const title = "Snake vs Walls";
+export const description = "A classic snake game where the snake must navigate through walls and obstacles, growing longer with each food item collected. The game features smooth controls, vibrant graphics, and increasing difficulty levels.";
 export const url = process.env.NEXT_PUBLIC_URL;
