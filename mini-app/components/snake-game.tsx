@@ -57,7 +57,7 @@ export function SnakeGame() {
         }
         return newSnake;
       });
-    }, 200);
+    }, 300);
     return () => clearInterval(interval);
   }, [direction, food, gameOver]);
 
@@ -68,7 +68,15 @@ export function SnakeGame() {
         x: Math.floor(Math.random() * GRID_SIZE),
         y: Math.floor(Math.random() * GRID_SIZE),
       };
-      if (!currentSnake.some(seg => seg.x === newFood.x && seg.y === newFood.y)) break;
+      if (
+        !currentSnake.some(seg => seg.x === newFood.x && seg.y === newFood.y) &&
+        newFood.x !== 0 &&
+        newFood.x !== GRID_SIZE - 1 &&
+        newFood.y !== 0 &&
+        newFood.y !== GRID_SIZE - 1
+      ) {
+        break;
+      }
     }
     return newFood;
   };
