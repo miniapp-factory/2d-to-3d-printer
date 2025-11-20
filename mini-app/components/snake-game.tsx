@@ -21,16 +21,16 @@ export function SnakeGame() {
     const handleKey = (e: KeyboardEvent) => {
       switch (e.key) {
         case "ArrowUp":
-          if (direction.y !== 1) setDirection({ x: 0, y: -1 });
+          if (direction.y !== 1) up();
           break;
         case "ArrowDown":
-          if (direction.y !== -1) setDirection({ x: 0, y: 1 });
+          if (direction.y !== -1) down();
           break;
         case "ArrowLeft":
-          if (direction.x !== 1) setDirection({ x: -1, y: 0 });
+          if (direction.x !== 1) left();
           break;
         case "ArrowRight":
-          if (direction.x !== -1) setDirection({ x: 1, y: 0 });
+          if (direction.x !== -1) right();
           break;
       }
     };
