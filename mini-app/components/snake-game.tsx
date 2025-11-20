@@ -13,6 +13,12 @@ export function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [snake, setSnake] = useState(INITIAL_SNAKE);
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
+
+  // Direction helper functions
+  const up = () => setDirection({ x: 0, y: -1 });
+  const down = () => setDirection({ x: 0, y: 1 });
+  const left = () => setDirection({ x: -1, y: 0 });
+  const right = () => setDirection({ x: 1, y: 0 });
   const [food, setFood] = useState({ x: 5, y: 5 });
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
