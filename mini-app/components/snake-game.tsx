@@ -36,7 +36,7 @@ export function SnakeGame() {
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [direction]);
+  }, []);
 
   useEffect(() => {
     if (gameOver) return;
@@ -73,7 +73,7 @@ export function SnakeGame() {
       });
     }, 200);
     return () => clearInterval(interval);
-  }, [direction, food, gameOver, generateFood]);
+  }, [direction, food, gameOver]);
 
   const generateFood = (currentSnake: typeof snake) => {
     let newFood: { x: number; y: number };
