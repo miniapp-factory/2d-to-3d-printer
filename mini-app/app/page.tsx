@@ -1,7 +1,6 @@
 import { description, title } from "@/lib/metadata";
 import { generateMetadata } from "@/lib/farcaster-embed";
-import { Upload } from "@/components/upload";
-import { ThreeDViewer } from "@/components/3d-viewer";
+import { SnakeGame } from "@/components/snake-game";
 
 export { generateMetadata };
 
@@ -11,8 +10,7 @@ export default function Home() {
     <main className="flex flex-col gap-3 place-items-center place-content-center px-4 grow">
       <span className="text-2xl">{title}</span>
       <span className="text-muted-foreground">{description}</span>
-      <Upload />
-      <ThreeDViewer />
+      <SnakeGame />
     </main>
   );
 }
