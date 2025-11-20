@@ -196,3 +196,9 @@
 # 2025-11-20 22:28:38.808326
 +The up down left right controls and to hard to control.
 +Replace them with four buttons for snake direction control. I would like the buttons to use arrow keys to show the up, down, left, and right. And placed the buttons in a cross layout with up on top, down on bottom, and the left and right arrow keys between them.
+
+# 2025-11-20 22:47:15.752082
++Have the green snake move a little slower and make sure the red food square never spawns inside the gray outline box. 
+
+# 2025-11-20 22:47:15.752896
++Have the green snake move a little slower and make sure the red food square never spawns inside the gray outline box. 
