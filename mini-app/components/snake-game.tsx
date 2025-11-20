@@ -73,10 +73,10 @@ export function SnakeGame() {
       });
     }, 200);
     return () => clearInterval(interval);
-  }, [direction, food, gameOver]);
+  }, [direction, food, gameOver, generateFood]);
 
   const generateFood = (currentSnake: typeof snake) => {
-    let newFood;
+    let newFood: { x: number; y: number };
     while (true) {
       newFood = {
         x: Math.floor(Math.random() * GRID_SIZE),
