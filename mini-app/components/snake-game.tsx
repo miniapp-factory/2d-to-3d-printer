@@ -23,57 +23,6 @@ export function SnakeGame() {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case "ArrowUp":
-          if (direction.y !== 1) up();
-          break;
-        case "ArrowDown":
-          if (direction.y !== -1) down();
-          break;
-        case "ArrowLeft":
-          if (direction.x !== 1) left();
-          break;
-        case "ArrowRight":
-          if (direction.x !== -1) right();
-          break;
-      }
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
-  // Touch controls for mobile
-  useEffect(() => {
-    let touchStartX = 0;
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      touchStartX = touch.clientX;
-      touchStartY = touch.clientY;
-    };
-    const handleTouchEnd = (e: TouchEvent) => {
-      const touch = e.changedTouches[0];
-      const deltaX = touch.clientX - touchStartX;
-      const deltaY = touch.clientY - touchStartY;
-      const absDeltaX = Math.abs(deltaX);
-      const absDeltaY = Math.abs(deltaY);
-      const threshold = 30; // minimum swipe distance
-      if (absDeltaX > absDeltaY && absDeltaX > threshold) {
-        if (deltaX > 0) right();
-        else left();
-      } else if (absDeltaY > threshold) {
-        if (deltaY > 0) down();
-        else up();
-      }
-    };
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchend", handleTouchEnd);
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [up, down, left, right]);
 
   useEffect(() => {
     if (gameOver) return;
@@ -160,6 +109,14 @@ export function SnakeGame() {
     <div className="flex flex-col items-center gap-4">
       <canvas ref={canvasRef} width={GRID_SIZE * 20} height={GRID_SIZE * 20} className="border" />
       <div className="text-lg">Score: {score}</div>
+      <div className="flex flex-col items-center gap-2">
+        <button onClick={up} className="p-2 bg-gray-200 rounded">↑</button>
+        <div className="flex gap-2">
+          <button onClick={left} className="p-2 bg-gray-200 rounded">←</button>
+          <button onClick={right} className="p-2 bg-gray-200 rounded">→</button>
+        </div>
+        <button onClick={down} className="p-2 bg-gray-200 rounded">↓</button>
+      </div>
       {gameOver && <div className="text-2xl text-red-600">Game Over</div>}
       {gameOver && (
         <button
