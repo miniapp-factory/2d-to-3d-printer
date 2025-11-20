@@ -127,12 +127,20 @@ export function SnakeGame() {
       </div>
       {gameOver && <div className="text-2xl text-red-600">Game Over</div>}
       {gameOver && (
-        <button
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={resetGame}
-        >
-          Try Again
-        </button>
+        <>
+          <button
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onClick={resetGame}
+          >
+            Try Again
+          </button>
+          <button
+            className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+            onClick={resetGame}
+          >
+            Start
+          </button>
+        </>
       )}
     </div>
   );
