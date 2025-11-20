@@ -93,6 +93,14 @@ export function SnakeGame() {
     return newFood;
   };
 
+  const resetGame = () => {
+    setSnake(INITIAL_SNAKE);
+    setDirection(INITIAL_DIRECTION);
+    setFood(generateFood(INITIAL_SNAKE));
+    setScore(0);
+    setGameOver(false);
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -122,6 +130,14 @@ export function SnakeGame() {
       <canvas ref={canvasRef} width={GRID_SIZE * 20} height={GRID_SIZE * 20} className="border" />
       <div className="text-lg">Score: {score}</div>
       {gameOver && <div className="text-2xl text-red-600">Game Over</div>}
+      {gameOver && (
+        <button
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onClick={resetGame}
+        >
+          Try Again
+        </button>
+      )}
     </div>
   );
 }
