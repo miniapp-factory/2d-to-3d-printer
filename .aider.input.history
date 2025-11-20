@@ -202,3 +202,13 @@
 
 # 2025-11-20 22:47:15.752896
 +Have the green snake move a little slower and make sure the red food square never spawns inside the gray outline box. 
+
+# 2025-11-20 23:22:05.859719
++Change app Description to 
++(Classic snake game. Eat the food grow your snake. But don't run into walls or eat your own body.)
++And add a start button next to the (try again) button.
+
+# 2025-11-20 23:22:05.860470
++Change app Description to 
++(Classic snake game. Eat the food grow your snake. But don't run into walls or eat your own body.)
++And add a start button next to the (try again) button.
