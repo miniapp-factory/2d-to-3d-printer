@@ -22,6 +22,13 @@ export function SnakeGame() {
   const [food, setFood] = useState({ x: 5, y: 5 });
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  useEffect(() => {
+    const stored = localStorage.getItem("snakeLeaderboard");
+    if (stored) {
+      setLeaderboard(JSON.parse(stored));
+    }
+  }, []);
+  const [leaderboard, setLeaderboard] = useState<{ name: string; score: number }[]>([]);
 
 
   useEffect(() => {
@@ -60,6 +67,18 @@ export function SnakeGame() {
     }, 300);
     return () => clearInterval(interval);
   }, [direction, food, gameOver]);
+
+  useEffect(() => {
+    if (gameOver) {
+      const name = prompt("Enter your name:") || "Player";
+      const newEntry = { name, score };
+      const updated = [...leaderboard, newEntry]
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 10);
+      setLeaderboard(updated);
+      localStorage.setItem("snakeLeaderboard", JSON.stringify(updated));
+    }
+  }, [gameOver]);
 
   const generateFood = (currentSnake: typeof snake) => {
     let newFood: { x: number; y: number };
@@ -117,6 +136,27 @@ export function SnakeGame() {
     <div className="flex flex-col items-center gap-4">
       <canvas ref={canvasRef} width={GRID_SIZE * 20} height={GRID_SIZE * 20} className="border" />
       <div className="text-lg">Score: {score}</div>
+      <div className="mt-4 w-full">
+        <h2 className="text-black font-bold text-center mb-2">Top 10 Leaderboard</h2>
+        <table className="w-full text-black font-bold">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboard.map((entry, idx) => (
+              <tr key={idx}>
+                <td>{idx + 1}</td>
+                <td>{entry.name}</td>
+                <td>{entry.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="flex flex-row items-center justify-between w-full px-4">
         <button
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
