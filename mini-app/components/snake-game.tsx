@@ -7,7 +7,7 @@ const INITIAL_SNAKE = [{ x: 10, y: 10 }];
 const INITIAL_DIRECTION = { x: 0, y: -1 };
 const FOOD_COLOR = "red";
 const SNAKE_COLOR = "lime";
-const WALL_COLOR = "darkgray";
+const WALL_COLOR = "darkblue";
 
 export function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
