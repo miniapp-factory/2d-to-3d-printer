@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
+import { MiniAppContext } from "./context/miniapp-provider";
 
 const GRID_SIZE = 20;
 const INITIAL_SNAKE = [{ x: 10, y: 10 }];
@@ -22,6 +23,7 @@ export function SnakeGame() {
   const [food, setFood] = useState({ x: 5, y: 5 });
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const { context } = useContext(MiniAppContext);
   useEffect(() => {
     const stored = localStorage.getItem("snakeLeaderboard");
     if (stored) {
@@ -70,7 +72,7 @@ export function SnakeGame() {
 
   useEffect(() => {
     if (gameOver) {
-      const name = prompt("Enter your name:") || "Player";
+      const name = context?.walletAddress ?? "Player";
       const newEntry = { name, score };
       const updated = [...leaderboard, newEntry]
         .sort((a, b) => b.score - a.score)
