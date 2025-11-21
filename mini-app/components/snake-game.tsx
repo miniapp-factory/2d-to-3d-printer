@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import InitialsSelector from "./initials-selector";
 
 const GRID_SIZE = 20;
 const INITIAL_SNAKE = [{ x: 10, y: 10 }];
@@ -22,6 +23,8 @@ export function SnakeGame() {
   const [food, setFood] = useState({ x: 5, y: 5 });
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [showInitials, setShowInitials] = useState(false);
+  const [initials, setInitials] = useState(['A', 'A', 'A']);
   useEffect(() => {
     const stored = localStorage.getItem("snakeLeaderboard");
     if (stored) {
@@ -75,21 +78,21 @@ export function SnakeGame() {
         .slice(0, 10);
       const qualifies = score > (potential[9]?.score ?? -Infinity);
       if (qualifies) {
-        let initials = prompt("Enter 3-letter initials:", "") ?? "";
-        initials = initials.trim().toUpperCase().slice(0, 3);
-        if (initials.length < 3) {
-          initials = initials.padEnd(3, "X");
-        }
-        const name = initials || "PLY";
-        const newEntry = { name, score };
-        const updated = [...leaderboard, newEntry]
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 10);
-        setLeaderboard(updated);
-        localStorage.setItem("snakeLeaderboard", JSON.stringify(updated));
+        setShowInitials(true);
       }
     }
-  }, [gameOver]);
+  }, [gameOver, score, leaderboard]);
+
+  const handleConfirmInitials = () => {
+    const name = initials.join('');
+    const newEntry = { name, score };
+    const updated = [...leaderboard, newEntry]
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10);
+    setLeaderboard(updated);
+    localStorage.setItem("snakeLeaderboard", JSON.stringify(updated));
+    setShowInitials(false);
+  };
 
   const generateFood = (currentSnake: typeof snake) => {
     let newFood: { x: number; y: number };
@@ -162,6 +165,13 @@ export function SnakeGame() {
           <button onClick={down} className="p-4 bg-gray-200 rounded">↓</button>
         </div>
       </div>
+      {showInitials && (
+        <InitialsSelector
+          initials={initials}
+          setInitials={setInitials}
+          onConfirm={handleConfirmInitials}
+        />
+      )}
       <div className="mt-4 w-full ml-13">
         <h2 className="text-black font-bold text-center mb-2">Top 10 Leaderboard</h2>
         <table className="w-full text-black font-bold">
