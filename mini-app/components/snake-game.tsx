@@ -69,7 +69,7 @@ export function SnakeGame() {
       });
     }, 300);
     return () => clearInterval(interval);
-  }, [direction, food, gameOver, generateFood]);
+  }, [direction, food, gameOver]);
 
   useEffect(() => {
     if (gameOver) {
