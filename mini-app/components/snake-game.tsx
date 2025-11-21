@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import InitialsSelector from "./initials-selector";
+import { InitialsSelector } from "./initials-selector";
 
 const GRID_SIZE = 20;
 const INITIAL_SNAKE = [{ x: 10, y: 10 }];
@@ -69,7 +69,7 @@ export function SnakeGame() {
       });
     }, 300);
     return () => clearInterval(interval);
-  }, [direction, food, gameOver]);
+  }, [direction, food, gameOver, generateFood]);
 
   useEffect(() => {
     if (gameOver) {
