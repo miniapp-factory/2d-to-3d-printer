@@ -212,3 +212,13 @@
 +Change app Description to 
 +(Classic snake game. Eat the food grow your snake. But don't run into walls or eat your own body.)
 +And add a start button next to the (try again) button.
+
+# 2025-11-21 00:11:32.028817
++Remove the start button.
++Make the up down left right button a little bigger and move them more to the right of the screen. 
++Place the try again button next to the direction keys but on the left side of the screen.
+
+# 2025-11-21 00:11:32.030015
++Remove the start button.
++Make the up down left right button a little bigger and move them more to the right of the screen. 
++Place the try again button next to the direction keys but on the left side of the screen.
