@@ -70,7 +70,12 @@ export function SnakeGame() {
 
   useEffect(() => {
     if (gameOver) {
-      const name = "Player";
+      let initials = prompt("Enter 3-letter initials:", "") ?? "";
+      initials = initials.trim().toUpperCase().slice(0, 3);
+      if (initials.length < 3) {
+        initials = initials.padEnd(3, "X");
+      }
+      const name = initials || "PLY";
       const newEntry = { name, score };
       const updated = [...leaderboard, newEntry]
         .sort((a, b) => b.score - a.score)
