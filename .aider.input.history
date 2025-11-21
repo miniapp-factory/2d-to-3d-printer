@@ -460,3 +460,9 @@
 +Instead of a name value, display the stored 3-letter string under Name.
 +
 +
+
+# 2025-11-21 19:18:52.697844
++Delete the commands that made the app fail deploy
+
+# 2025-11-21 19:18:52.698211
++Delete the commands that made the app fail deploy
