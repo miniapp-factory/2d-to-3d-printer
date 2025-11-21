@@ -392,3 +392,9 @@
 
 # 2025-11-21 16:03:50.459938
 +Undo the last attempted deployment and go back to how the app was set up before the last attempt 
+
+# 2025-11-21 16:27:58.009564
++Delete all the commands that is involved with connecting a players wallet with their name. 
+
+# 2025-11-21 16:27:58.011436
++Delete all the commands that is involved with connecting a players wallet with their name. 
