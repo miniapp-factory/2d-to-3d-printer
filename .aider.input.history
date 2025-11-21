@@ -412,3 +412,51 @@
 
 # 2025-11-21 16:48:23.205453
 +Let the player choose their own three letter initials if they score high enough to be in the Top 10 Leader Board.
+
+# 2025-11-21 18:55:04.030286
++Detect when the player qualifies for the leaderboard.
++After a game ends, compare the player’s score to the stored leaderboard.
++Create an “Enter Initials” screen.
++Use 3 separate selectors/buttons:
++
++Up/Down buttons to cycle A–Z for each letter
++
++Store them in variables:
++
++Initial1 = A–Z
++
++Initial2 = A–Z
++
++Initial3 = A–Z
++Save the initials + score + Rank
++
++When the player taps “OK,” write the data into your leaderboard array
++Display the initials on the leaderboard screen
++
++Instead of a name value, display the stored 3-letter string under Name.
++
++
+
+# 2025-11-21 18:55:04.031091
++Detect when the player qualifies for the leaderboard.
++After a game ends, compare the player’s score to the stored leaderboard.
++Create an “Enter Initials” screen.
++Use 3 separate selectors/buttons:
++
++Up/Down buttons to cycle A–Z for each letter
++
++Store them in variables:
++
++Initial1 = A–Z
++
++Initial2 = A–Z
++
++Initial3 = A–Z
++Save the initials + score + Rank
++
++When the player taps “OK,” write the data into your leaderboard array
++Display the initials on the leaderboard screen
++
++Instead of a name value, display the stored 3-letter string under Name.
++
++
