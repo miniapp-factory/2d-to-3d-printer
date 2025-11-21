@@ -312,3 +312,17 @@
 
 # 2025-11-21 12:42:19.032143
 +Change the color of the walls to a dark blue. 
+
+# 2025-11-21 13:19:20.966745
++Add Top 10 Leader Board
++Below the game controls. 
++1 through 10 columns that records the highest score achieved. Scores should descend in rank with 1 being the highest score achieved. Have it list the score and the user name. Scores should be saved and always showing everytime app is opened.
++Use Black bold Front for the style. Top 10 Leader board
++Needs to be listed above the columns.
+
+# 2025-11-21 13:19:20.967206
++Add Top 10 Leader Board
++Below the game controls. 
++1 through 10 columns that records the highest score achieved. Scores should descend in rank with 1 being the highest score achieved. Have it list the score and the user name. Scores should be saved and always showing everytime app is opened.
++Use Black bold Front for the style. Top 10 Leader board
++Needs to be listed above the columns.
