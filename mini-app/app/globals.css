@@ -93,6 +93,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-purple-300 text-foreground;
+    @apply bg-purple-200 text-foreground;
   }
 }
