@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-black`}>
         <MiniAppProvider>
           <div className="font-sans min-h-screen flex flex-col place-content-between gap-2">
             <Header />
