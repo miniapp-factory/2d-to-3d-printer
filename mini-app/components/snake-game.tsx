@@ -151,7 +151,7 @@ export function SnakeGame() {
           <button onClick={down} className="p-4 bg-gray-200 rounded">↓</button>
         </div>
       </div>
-      <div className="mt-4 w-full">
+      <div className="mt-4 w-full ml-4">
         <h2 className="text-black font-bold text-center mb-2">Top 10 Leaderboard</h2>
         <table className="w-full text-black font-bold">
           <thead>
