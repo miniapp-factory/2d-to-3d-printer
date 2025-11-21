@@ -135,7 +135,6 @@ export function SnakeGame() {
   return (
     <div className="flex flex-col items-center gap-4">
       <canvas ref={canvasRef} width={GRID_SIZE * 20} height={GRID_SIZE * 20} className="border" />
-      <div className="text-lg">Score: {score}</div>
       <div className="flex flex-row items-center justify-between w-full px-4">
         <button
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -157,7 +156,7 @@ export function SnakeGame() {
         <table className="w-full text-black font-bold">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Rank</th>
               <th>Name</th>
               <th>Score</th>
             </tr>
@@ -173,6 +172,7 @@ export function SnakeGame() {
           </tbody>
         </table>
       </div>
+      <div className="text-lg">Score: {score}</div>
       {gameOver && <div className="text-2xl text-red-600">Game Over</div>}
     </div>
   );
