@@ -466,3 +466,9 @@
 
 # 2025-11-21 19:18:52.698211
 +Delete the commands that made the app fail deploy
+
+# 2025-11-21 19:23:51.142442
++Restore app back to when app was last deployed successfully 
+
+# 2025-11-21 19:23:51.142843
++Restore app back to when app was last deployed successfully 
