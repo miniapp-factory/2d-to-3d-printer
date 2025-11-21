@@ -70,18 +70,24 @@ export function SnakeGame() {
 
   useEffect(() => {
     if (gameOver) {
-      let initials = prompt("Enter 3-letter initials:", "") ?? "";
-      initials = initials.trim().toUpperCase().slice(0, 3);
-      if (initials.length < 3) {
-        initials = initials.padEnd(3, "X");
-      }
-      const name = initials || "PLY";
-      const newEntry = { name, score };
-      const updated = [...leaderboard, newEntry]
+      const potential = [...leaderboard, { name: "", score }]
         .sort((a, b) => b.score - a.score)
         .slice(0, 10);
-      setLeaderboard(updated);
-      localStorage.setItem("snakeLeaderboard", JSON.stringify(updated));
+      const qualifies = score > (potential[9]?.score ?? -Infinity);
+      if (qualifies) {
+        let initials = prompt("Enter 3-letter initials:", "") ?? "";
+        initials = initials.trim().toUpperCase().slice(0, 3);
+        if (initials.length < 3) {
+          initials = initials.padEnd(3, "X");
+        }
+        const name = initials || "PLY";
+        const newEntry = { name, score };
+        const updated = [...leaderboard, newEntry]
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 10);
+        setLeaderboard(updated);
+        localStorage.setItem("snakeLeaderboard", JSON.stringify(updated));
+      }
     }
   }, [gameOver]);
 
