@@ -117,31 +117,23 @@ export function SnakeGame() {
     <div className="flex flex-col items-center gap-4">
       <canvas ref={canvasRef} width={GRID_SIZE * 20} height={GRID_SIZE * 20} className="border" />
       <div className="text-lg">Score: {score}</div>
-      <div className="flex flex-col items-center gap-2">
-        <button onClick={up} className="p-2 bg-gray-200 rounded">↑</button>
-        <div className="flex gap-2">
-          <button onClick={left} className="p-2 bg-gray-200 rounded">←</button>
-          <button onClick={right} className="p-2 bg-gray-200 rounded">→</button>
+      <div className="flex flex-row items-center justify-between w-full px-4">
+        <button
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onClick={resetGame}
+        >
+          Try Again
+        </button>
+        <div className="flex flex-col items-center gap-2">
+          <button onClick={up} className="p-4 bg-gray-200 rounded">↑</button>
+          <div className="flex gap-2">
+            <button onClick={left} className="p-4 bg-gray-200 rounded">←</button>
+            <button onClick={right} className="p-4 bg-gray-200 rounded">→</button>
+          </div>
+          <button onClick={down} className="p-4 bg-gray-200 rounded">↓</button>
         </div>
-        <button onClick={down} className="p-2 bg-gray-200 rounded">↓</button>
       </div>
       {gameOver && <div className="text-2xl text-red-600">Game Over</div>}
-      {gameOver && (
-        <>
-          <button
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            onClick={resetGame}
-          >
-            Try Again
-          </button>
-          <button
-            className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-            onClick={resetGame}
-          >
-            Start
-          </button>
-        </>
-      )}
     </div>
   );
 }
